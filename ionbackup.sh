@@ -7,7 +7,7 @@
 # Max troughput, to limit 'other' performance issues speed is in KB/s
 THROTTLE=6400
 PIDFILE=/var/run/ionbackup.pid
-DESTINATION=ionbackup@x.x.x.x:/data/ionbackup   # fill in IP of destionation server
+DESTINATION=ionbackup@x.x.x.x:/data/ionbackup   # fill in IP of destination server
 SSHKEYLOCATION=/opt/ionbackup/ionbackup.key
 
 
