@@ -26,13 +26,13 @@ if [ -e "$PIDFILE" ] ; then
 monthday=$(date '+%d')
 
 # Backup archive location, does not delete any files at target location. ( should be kept atleast 5 years )
-rsync -e 'ssh -i $SSHKEYLOCATION' --bwlimit="$THROTTLE" -avz --timeout=300 --log-file="/var/log/ionbackup/rsyncbackup.log" /data/iontorrent/ $DESTINATION/archive/
+rsync -e 'ssh -i '$SSHKEYLOCATION --bwlimit="$THROTTLE" -avz --timeout=300 --log-file="/var/log/ionbackup/rsyncbackup.log" /data/iontorrent/ $DESTINATION/archive/
 
 # Backup results location, delete file in destination every 1st day of the month.
 if [ "$monthday" = "01" ]; then
-  rsync -e 'ssh -i $SSHKEYLOCATION' --bwlimit="$THROTTLE" -avz --del --timeout=300 --log-file="/var/log/ionbackup/rsyncbackup.log" /results/ $DESTINATION/results/
+  rsync -e 'ssh -i '$SSHKEYLOCATION --bwlimit="$THROTTLE" -avz --del --timeout=300 --log-file="/var/log/ionbackup/rsyncbackup.log" /results/ $DESTINATION/results/
 else
-  rsync -e 'ssh -i $SSHKEYLOCATION' --bwlimit="$THROTTLE" -avz --timeout=300 --log-file="/var/log/ionbackup/rsyncbackup.log" /results/ $DESTINATION/results/
+  rsync -e 'ssh -i '$SSHKEYLOCATION --bwlimit="$THROTTLE" -avz --timeout=300 --log-file="/var/log/ionbackup/rsyncbackup.log" /results/ $DESTINATION/results/
 fi
 
 # remove PIDfile
